@@ -3,7 +3,7 @@ package = "lua-rpg"
 version = "dev-1"
 source = {
    url = "git://github.com/astro-derek/lua-rpg",
-   tag = "0.0.1"
+   tag = "0.0.2"
 }
 description = {
    summary = "An RPG Engine built in lua.",
@@ -12,7 +12,7 @@ description = {
    maintainer = "Derek Potter <dpmn83@gmail.com>"
 }
 dependencies = {
-   "lua ~> 5.4",
+   "lua >= 5.4",
 }
 build = {
    type = "builtin",
