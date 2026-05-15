@@ -2,7 +2,7 @@ rockspec_format = "3.0"
 package = "lua-rpg"
 version = "dev-1"
 source = {
-   url = "*** please add URL for source tarball, zip or repository here ***",
+   url = "https://github.com/astro-derek/lua-rpg",
    tag = "v0.0.0"
 }
 description = {
