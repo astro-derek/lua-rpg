@@ -27,7 +27,7 @@ private.parse = function(input)
 end
 
 module.variables = require("engine.variables")
-module.version = "0.0.15"
+module.version = "0.0.16"
 module.author = "Derek Potter"
 module.license = "MIT"
 module.description = "An RPG Engine built in lua."
