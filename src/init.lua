@@ -3,21 +3,23 @@ local commands = require("engine.commands")
 local module = {}
 
 local function process()
+    module.output("What do you want to do?")
     local input = io.read()
-    local command = input:match("^(%S+)")
-    local parameters = input:match("^%S+%s+(.*)")
 
-    print(command)
-    print(parameters)
+    local words = {}
+    for item in input:gmatch("%S+") do
+        table.insert(words, item)
+    end
 
-    if input == "exit" then
+    print(words)
+
+    local command = words[1]
+    if command == "exit" then
         return false
     end
 
-    if commands[command] then
-        local description = commands[command](module, parameters)
-        module.output(description)
-    end
+    local parameters = {table.unpack(words, 2)}
+    commands[command](module, parameters)
 
     return true
 end
