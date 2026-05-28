@@ -2,9 +2,28 @@ local commands = require("engine.commands")
 
 local module = {}
 
-module.variables = require("engine.variables")
+local function process()
+    local input = io.read()
+    local command = input:match("^(%S+)")
+    local parameters = input:match("^%S+%s+(.*)")
 
-module.version = "0.0.9"
+    print(command)
+    print(parameters)
+
+    if input == "exit" then
+        return false
+    end
+
+    if commands[command] then
+        local description = commands[command](module, parameters)
+        module.output(description)
+    end
+
+    return true
+end
+
+module.variables = require("engine.variables")
+module.version = "0.0.10"
 module.author = "Derek Potter"
 module.license = "MIT"
 module.description = "An RPG Engine built in lua."
@@ -20,7 +39,11 @@ module.loop = function()
         return "You must set a map before you can start the game loop."
     end
 
-    module.output(commands.describe(module))
+    local looping = true
+
+    while looping do
+        looping = process()
+    end
 end
 
 module.finish = function()

@@ -11,4 +11,12 @@ module.describe = function(engine)
     return location.describe()
 end
 
+
+module.go = function(engine, parameters)
+    local current_location = engine.variables.get("current_location")
+    local location = engine.map[current_location]
+
+    return location.go(parameters)
+end
+
 return module
