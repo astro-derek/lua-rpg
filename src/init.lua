@@ -1,9 +1,8 @@
 local commands = require("engine.commands")
 
 local module = {}
-local private = {}
 
-private.process = function()
+local function process()
     module.output("What do you want to do?")
 
     local input = io.read()
@@ -11,23 +10,21 @@ private.process = function()
         return false
     end
 
-    local command, parameters = private.parse(input)
-    commands[command](module, parameters)
-
-    return true
-end
-
-private.parse = function(input)
     local words = {}
     for item in input:gmatch("%S+") do
         table.insert(words, item)
     end
 
-    return {words[1], {table.unpack(words, 2)}}
+    local command = words[1]
+    local parameters = {table.unpack(words, 2)}
+
+    commands[command](module, parameters)
+
+    return true
 end
 
 module.variables = require("engine.variables")
-module.version = "0.0.16"
+module.version = "0.0.17"
 module.author = "Derek Potter"
 module.license = "MIT"
 module.description = "An RPG Engine built in lua."
@@ -46,7 +43,7 @@ module.loop = function()
     local looping = true
 
     while looping do
-        looping = private.process()
+        looping = process()
     end
 end
 
