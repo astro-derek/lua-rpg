@@ -25,7 +25,7 @@ local function process()
 end
 
 module.variables = require("engine.variables")
-module.version = "0.0.10"
+module.version = "0.0.11"
 module.author = "Derek Potter"
 module.license = "MIT"
 module.description = "An RPG Engine built in lua."
