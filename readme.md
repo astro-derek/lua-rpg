@@ -2,7 +2,7 @@
 
 ## Building
 - change version string in `init.lua`
-- create a new version: `./luarocks new_version`
+- create a new version: `luarocks new_version`
 - change tag in `.rockspec` file
 - `git add .`
 - `git commit -m "add message"`

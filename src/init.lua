@@ -4,7 +4,7 @@ local module = {}
 
 module.variables = require("engine.variables")
 
-module.version = "0.0.8"
+module.version = "0.0.9"
 module.author = "Derek Potter"
 module.license = "MIT"
 module.description = "An RPG Engine built in lua."
