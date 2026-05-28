@@ -16,7 +16,8 @@ module.go = function(engine, parameters)
     local current_location = engine.variables.get("current_location")
     local location = engine.map[current_location]
 
-    if location.go(parameters) then
+    local key = parameters[1]
+    if location.go(key) then
         module.describe(engine)
     else
         engine.output("You can't go that way.")

@@ -4,7 +4,12 @@ local module = {}
 
 local function process()
     module.output("What do you want to do?")
+
     local input = io.read()
+    if (input == "exit") then
+        return false
+    end
+
 
     local words = {}
     for item in input:gmatch("%S+") do
@@ -14,11 +19,11 @@ local function process()
     print(table.concat(words, " "))
 
     local command = words[1]
-    if command == "exit" then
-        return false
-    end
 
     local parameters = {table.unpack(words, 2)}
+
+    print(parameters[1])
+    print(parameters[2])
     commands[command](module, parameters)
 
     return true
