@@ -5,7 +5,7 @@ if [ -z "$1" ]; then
 	exit 1
 fi
 
-if [ -z "$rocks_api_key" ]; then
+if [ -z "${rocks_api_key}" ]; then
 	echo "Error: rocks_api_key must be set."
 	exit 1
 fi
