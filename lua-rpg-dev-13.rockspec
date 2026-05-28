@@ -1,9 +1,9 @@
 rockspec_format = "3.0"
 package = "lua-rpg"
-version = "dev-11"
+version = "dev-13"
 source = {
    url = "git://github.com/astro-derek/lua-rpg",
-   tag = "0.0.11"
+   tag = "0.0.14"
 }
 description = {
    summary = "An RPG Engine built in lua.",
