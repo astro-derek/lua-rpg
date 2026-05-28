@@ -11,7 +11,7 @@ local function process()
         table.insert(words, item)
     end
 
-    print(words)
+    print(table.concat(words, " "))
 
     local command = words[1]
     if command == "exit" then
