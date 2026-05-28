@@ -4,7 +4,7 @@ local module = {}
 
 module.variables = require("engine.variables")
 
-module.version = "0.0.4"
+module.version = "0.0.8"
 module.author = "Derek Potter"
 module.license = "MIT"
 module.description = "An RPG Engine built in lua."
@@ -20,7 +20,7 @@ module.loop = function()
         return "You must set a map before you can start the game loop."
     end
 
-    module.output(commands.describe())
+    module.output(commands.describe(module))
 end
 
 module.finish = function()
