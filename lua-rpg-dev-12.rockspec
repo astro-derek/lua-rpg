@@ -3,7 +3,7 @@ package = "lua-rpg"
 version = "dev-12"
 source = {
    url = "git://github.com/astro-derek/lua-rpg",
-   tag = "0.0.12"
+   tag = "0.0.13"
 }
 description = {
    summary = "An RPG Engine built in lua.",
