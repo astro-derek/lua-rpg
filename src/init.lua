@@ -1,8 +1,9 @@
 local commands = require("engine.commands")
 
 local module = {}
+local private = {}
 
-local function process()
+private.process = function()
     module.output("What do you want to do?")
 
     local input = io.read()
@@ -10,23 +11,19 @@ local function process()
         return false
     end
 
+    local command, parameters = private.parse(input)
+    commands[command](module, parameters)
 
+    return true
+end
+
+private.parse = function(input)
     local words = {}
     for item in input:gmatch("%S+") do
         table.insert(words, item)
     end
 
-    print(table.concat(words, " "))
-
-    local command = words[1]
-
-    local parameters = {table.unpack(words, 2)}
-
-    print(parameters[1])
-    print(parameters[2])
-    commands[command](module, parameters)
-
-    return true
+    return {words[1], {table.unpack(words, 2)}}
 end
 
 module.variables = require("engine.variables")
@@ -49,7 +46,7 @@ module.loop = function()
     local looping = true
 
     while looping do
-        looping = process()
+        looping = private.process()
     end
 end
 
